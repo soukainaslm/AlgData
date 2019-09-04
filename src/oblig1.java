@@ -12,17 +12,24 @@ public class oblig1 {
 
         int maksVerdi = 0;
 
-        for(int i = 1; i < a.length; i++){
-            if(a[i] > a[maksVerdi]) maksVerdi = i;
+        for(int i = 0; i < a.length -1 ; i++){
+
+            if(a[i] > a[i+1]) {
+                maksVerdi = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = maksVerdi;
+
+            }
+
         }
-        return maksVerdi;
+
+        return a[a.length - 1];
     }
 
     public static void main(String[] args){
         int [] a = {1,5,3,2,6,8,1};
 
         System.out.println(oblig1.maks(a));
-        System.out.println("ds");
     }
 }
 
