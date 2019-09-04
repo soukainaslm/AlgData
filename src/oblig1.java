@@ -1,27 +1,24 @@
-
-/*
-    Sakina Salam - S331419
-    Zarina Iljasova - S311806
- */
-
 public class oblig1 {
+    public static int maks(int[] a) // a er en heltallstabell
+    {
+        if (a.length < 1) {
 
-    public static int maks(int[] a){
-        if (a.length < 1)
-            throw new java.util.NoSuchElementException("Tabellen er tom!");
 
-        int maksVerdi = 0; 
-
-        for(int i = 1; i < a.length; i++){
-            if(a[i] > a[maksVerdi]) maksVerdi = i;
+         throw new java.util.NoSuchElementException("Tabellen a er tom!");
         }
-        return maksVerdi;
-    }
 
-    public static void main(String[] args){
-        int [] a = {1,5,3,2,6,8,1};
+        int m = 0;  // indeks til foreløpig største verdi
 
-        System.out.println(oblig1.maks(a));
-        System.out.println("ds");
-    }
+        for (int i = 1; i < a.length; i++)  // obs: starter med i = 1
+        {
+
+            if (a[i] > a[m]) m = i;  // indeksen oppdateres
+
+        }
+
+        return m;  // retuadfjkhbrnerer indeksen/posisjonen til største verdi
+
+    }  // maks a
+
 }
+
