@@ -8,6 +8,8 @@ import java.util.NoSuchElementException;
 
 public class oblig1 {
 
+    //Oppgave 1
+
     public static int maks(int[] a){
         if (a.length < 1)
             throw new java.util.NoSuchElementException("Tabellen er tom!");
@@ -29,10 +31,11 @@ public class oblig1 {
     }
 
     public static void main(String[] args){
-        int [] a = {1,5,3,2,6,8,1,9,10};
+        int [] a = {1,2,3,4,5};
 
         System.out.println(oblig1.maks(a));
         System.out.println(oblig1.ombyttinger(a));
+        System.out.println(oblig1.antallUlikeSortert(a));
     }
 
 
@@ -43,7 +46,7 @@ public class oblig1 {
         if (a.length < 1)
             throw new NoSuchElementException("Tabellen er tom");
 
-        for (int j = 1; j < a.length - 1; j++) {
+        for (int j = 0; j < a.length - 1; j++) {
             if (a[j + 1] > a[j]) {
                 int maksVerdi = a[j + 1];
                 a[j + 1] = a[j];
@@ -53,6 +56,31 @@ public class oblig1 {
         }
         return ombytt;
     }
+
+    //Oppgave 2
+    public static int antallUlikeSortert(int[] a){
+        //sjekker om a er sortert stigende
+        int x = 0;
+        int antall = 0;
+
+        for (int j = 0; j < a.length ; j++){
+            if ( a[j] >= x){
+                if (a[j]!= x){
+                    antall++;
+                }
+                x = a[j];
+            }
+            else{
+
+                throw new IllegalStateException("Tabellen a er ikke sortert  på en stigende måte");
+            }
+        }
+        return antall;
+        //returner antall ulike verdier
+    }
+
+
+
 }
 
 
