@@ -16,7 +16,7 @@ public class oblig1 {
 
         }
 
-        return m;  // returnerer indeksen/posisjonen til største verdi
+        return m;  // retuadfjkhbrnerer indeksen/posisjonen til største verdi
 
     }  // maks a
 
