@@ -1,6 +1,6 @@
 
 /*
-    Sakina Salam - S331419
+    Soukaina Salam - S331419
     Zarina Iljasova - S311806
  */
 
@@ -14,12 +14,12 @@ public class oblig1 {
 
         int maksVerdi = 0;
 
-        for(int i = 0; i < a.length -1 ; i++){
+        for(int j = 0; j < a.length -1 ; j++){
 
-            if(a[i] > a[i+1]) {
-                maksVerdi = a[i];
-                a[i] = a[i + 1];
-                a[i + 1] = maksVerdi;
+            if(a[j] > a[j+1]) {
+                maksVerdi = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = maksVerdi;
 
             }
 
@@ -43,11 +43,11 @@ public class oblig1 {
         if (a.length < 1)
             throw new NoSuchElementException("Tabellen er tom");
 
-        for (int i = 1; i < a.length - 1; i++) {
-            if (a[i + 1] > a[i]) {
-                int maksVerdi = a[i + 1];
-                a[i + 1] = a[i];
-                a[i] = maksVerdi;
+        for (int j = 1; j < a.length - 1; j++) {
+            if (a[j + 1] > a[j]) {
+                int maksVerdi = a[j + 1];
+                a[j + 1] = a[j];
+                a[j] = maksVerdi;
                 ombytt++;
             }
         }
