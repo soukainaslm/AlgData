@@ -10,7 +10,7 @@ public class oblig1 {
         if (a.length < 1)
             throw new java.util.NoSuchElementException("Tabellen er tom!");
 
-        int maksVerdi = 0;
+        int maksVerdi = 0; 
 
         for(int i = 1; i < a.length; i++){
             if(a[i] > a[maksVerdi]) maksVerdi = i;
