@@ -4,7 +4,7 @@
     Zarina Iljasova - S311806
  */
 
-public class oblig1 { 
+public class oblig1 {
 
     public static int maks(int[] a){
         if (a.length < 1)
@@ -22,5 +22,6 @@ public class oblig1 {
         int [] a = {1,5,3,2,6,8,1};
 
         System.out.println(oblig1.maks(a));
+        System.out.println("ds");
     }
 }
