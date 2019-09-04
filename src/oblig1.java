@@ -4,7 +4,7 @@
     Zarina Iljasova - S311806
  */
 
-public class oblig1 {
+public class oblig1 { 
 
     public static int maks(int[] a){
         if (a.length < 1)
