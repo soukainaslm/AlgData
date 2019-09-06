@@ -79,7 +79,7 @@ public class oblig1 {
                 throw new IllegalStateException("Tabellen er ikke sortert");
             }
         }
-        return teller;
+        return teller; 
 
     }
 
