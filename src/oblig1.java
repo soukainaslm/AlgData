@@ -31,7 +31,7 @@ public class oblig1 {
     }
 */
     public static void main(String[] args){
-        int [] a = {1,1,2,3};
+        int [] a = {};
 
         //System.out.println(oblig1.maks(a));
         //System.out.println(oblig1.ombyttinger(a));
@@ -69,13 +69,13 @@ public class oblig1 {
         int teller = 1;
 
         for (int j= 0; j< a.length - 1; j++){
-            if ( a[j] >= i){
+            if ( i <= a[j]){
                 if ( a[j]!= i){
                     teller++;
                 }
                 i = a[j];
             }
-            else{
+            if (a[j] > a [j + 1]){
                 throw new IllegalStateException("Tabellen er ikke sortert");
             }
         }
