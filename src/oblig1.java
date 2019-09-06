@@ -10,32 +10,33 @@ public class oblig1 {
 
     //Oppgave 1
 
-  /*  public static int maks(int[] a){
-        if (a.length < 1)
-            throw new java.util.NoSuchElementException("Tabellen er tom!");
+    /*  public static int maks(int[] a){
+          if (a.length < 1)
+              throw new java.util.NoSuchElementException("Tabellen er tom!");
 
-        int maksVerdi = 0;
+          int maksVerdi = 0;
 
-        for(int j = 0; j < a.length -1 ; j++){
+          for(int j = 0; j < a.length -1 ; j++){
 
-            if(a[j] > a[j+1]) {
-                maksVerdi = a[j];
-                a[j] = a[j + 1];
-                a[j + 1] = maksVerdi;
+              if(a[j] > a[j+1]) {
+                  maksVerdi = a[j];
+                  a[j] = a[j + 1];
+                  a[j + 1] = maksVerdi;
 
-            }
+              }
 
-        }
+          }
 
-        return a[a.length - 1];
-    }
-*/
-    public static void main(String[] args){
-        int [] a = {};
+          return a[a.length - 1];
+      }
+  */
+    public static void main(String[] args) {
+        int[] a = {1, 1, 1, 1, 3, 4, 9, 7};
 
         //System.out.println(oblig1.maks(a));
         //System.out.println(oblig1.ombyttinger(a));
-        System.out.println(oblig1.antallUlikeSortert(a));
+        //System.out.println(oblig1.antallUlikeSortert(a));
+        System.out.println(oblig1.antallUlikeUsortert(a));
     }
 
 
@@ -59,7 +60,7 @@ public class oblig1 {
     */
 
     //Oppgave 2
-    public static int antallUlikeSortert(int[] a){
+    /*public static int antallUlikeSortert(int[] a){
 
         if (a.length < 1){
             return 0;
@@ -81,8 +82,36 @@ public class oblig1 {
         }
         return teller; 
 
+    }*/
+
+
+    public static int antallUlikeUsortert(int[] a) {
+        if (a.length < 1)
+            return 0;           //sjekker om arrayet er tomt
+        else {
+            int teller = 0;
+            int next = 0;
+            for (int i = 0; i < a.length; i++) {    //kjører gjennom arrayet
+                if (a[i] != next) {             //sjekker om nåværende indeks er lik forrige indeks i arrayet
+                    teller++;
+                }
+                next = a[i];
+            }
+            return teller;
+        }
+
     }
 
+
+    public static void delsortering(int[] a) {
+        if (a.length < 1)
+            System.out.println("0");
+        
+    }
 }
+
+
+}
+
 
 
