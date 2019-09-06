@@ -10,7 +10,7 @@ public class oblig1 {
 
     //Oppgave 1
 
-    public static int maks(int[] a){
+  /*  public static int maks(int[] a){
         if (a.length < 1)
             throw new java.util.NoSuchElementException("Tabellen er tom!");
 
@@ -29,17 +29,17 @@ public class oblig1 {
 
         return a[a.length - 1];
     }
-
+*/
     public static void main(String[] args){
-        int [] a = {1,2,3,4,5};
+        int [] a = {1,1,2,3};
 
-        System.out.println(oblig1.maks(a));
-        System.out.println(oblig1.ombyttinger(a));
+        //System.out.println(oblig1.maks(a));
+        //System.out.println(oblig1.ombyttinger(a));
         System.out.println(oblig1.antallUlikeSortert(a));
     }
 
 
-    public static int ombyttinger(int[] a) {
+ /*   public static int ombyttinger(int[] a) {
 
 
         int ombytt = 0;
@@ -56,30 +56,32 @@ public class oblig1 {
         }
         return ombytt;
     }
+    */
 
     //Oppgave 2
     public static int antallUlikeSortert(int[] a){
-        //sjekker om a er sortert stigende
-        int x = 0;
-        int antall = 0;
 
-        for (int j = 0; j < a.length ; j++){
-            if ( a[j] >= x){
-                if (a[j]!= x){
-                    antall++;
+        if (a.length < 1){
+            return 0;
+        }
+
+        int i = 0;
+        int teller = 1;
+
+        for (int j= 0; j< a.length - 1; j++){
+            if ( a[j] >= i){
+                if ( a[j]!= i){
+                    teller++;
                 }
-                x = a[j];
+                i = a[j];
             }
             else{
-
-                throw new IllegalStateException("Tabellen a er ikke sortert  på en stigende måte");
+                throw new IllegalStateException("Tabellen er ikke sortert");
             }
         }
-        return antall;
-        //returner antall ulike verdier
+        return teller;
+
     }
-
-
 
 }
 
