@@ -32,14 +32,19 @@ public class oblig1 {
       }
   */
     public static void main(String[] args) {
-        int[] a = {1,2,3,4,5,6,7,8,9,10};
+        //int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
         //System.out.println(oblig1.maks(a));
         //System.out.println(oblig1.ombyttinger(a));
         //System.out.println(oblig1.antallUlikeSortert(a));
         //System.out.println(oblig1.antallUlikeUsortert(a));
-        delsortering(a);
+        //delsortering(a);
+        // System.out.println(Arrays.toString(a));
+
         System.out.println(Arrays.toString(a));
+        rotasjon(a,3); System.out.println(Arrays.toString(a));
+        rotasjon(a,-2); System.out.println(Arrays.toString(a));
     }
 
 
@@ -105,7 +110,7 @@ public class oblig1 {
 
     }*/
 
-
+/*
     public static void delsortering(int[] a) {
         if (a.length < 1)
             System.out.println("0");
@@ -129,9 +134,75 @@ public class oblig1 {
             }
         }
     }
+    */
+/*
+
+    //Oppgave 5
+
+    public static void rotasjon(char[] a) {
+        if (a.length < 2) {
+            return;
+        }
+
+        char nyliste = a[a.length - 1];
+
+        for (int i = a.length - 1; i >= 1; i--) {
+            a[i] = a[i - 1];
+        }
+
+        a[0] = nyliste;
     }
 
+*/
 
+    //Oppgave 6
+
+    public static void rotasjon(char[] a, int k) {
+        int b = a.length;
+
+        if (b < 2) {
+            return;
+        }
+
+        k %= b;
+
+        char[] tabell = new char[Math.abs(k)];
+        int c = 0;
+
+        // Mot venstre
+        if (k < 0) {
+            k = Math.abs(k);
+
+            for (int i = 0; i < k; i++) {
+                tabell[i] = a[i];
+            }
+
+            for (int i = 0; i <= b - k - 1; i++) {
+                a[i] = a[k + i];
+            }
+
+            for (int i = 0; i < tabell.length; i++) {
+                a[b - i - 1] = tabell[k - i - 1];
+            }
+        }
+
+        // Mot høyre
+        else if (k > 0) {
+            for (int i = b - k; i < b; i++) {
+                tabell[c++] = a[i];
+            }
+
+            for (int i = b - k - 1; i >= 0; i--) {
+                a[k + i] = a[i];
+                if (i < k) {
+                    a[i] = tabell[i];
+                }
+            }
+
+        }
+
+        }
+    }
 
 
 
