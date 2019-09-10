@@ -4,6 +4,7 @@
     Zarina Iljasova - S311806
  */
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class oblig1 {
@@ -31,12 +32,14 @@ public class oblig1 {
       }
   */
     public static void main(String[] args) {
-        int[] a = {1, 1, 1, 1, 3, 4, 9, 7};
+        int[] a = {1,2,3,4,5,6,7,8,9,10};
 
         //System.out.println(oblig1.maks(a));
         //System.out.println(oblig1.ombyttinger(a));
         //System.out.println(oblig1.antallUlikeSortert(a));
-        System.out.println(oblig1.antallUlikeUsortert(a));
+        //System.out.println(oblig1.antallUlikeUsortert(a));
+        delsortering(a);
+        System.out.println(Arrays.toString(a));
     }
 
 
@@ -85,7 +88,7 @@ public class oblig1 {
     }*/
 
 
-    public static int antallUlikeUsortert(int[] a) {
+  /*  public static int antallUlikeUsortert(int[] a) {
         if (a.length < 1)
             return 0;           //sjekker om arrayet er tomt
         else {
@@ -100,18 +103,37 @@ public class oblig1 {
             return teller;
         }
 
-    }
+    }*/
 
 
     public static void delsortering(int[] a) {
         if (a.length < 1)
             System.out.println("0");
-        
+
+        int partall = 0, oddetall = a.length - 1;
+        while (oddetall > partall)
+        {
+            while (a[oddetall]%2 == 0 && oddetall > partall)
+                oddetall--;
+
+            while (a[partall]%2 == 1 && oddetall >  partall)
+                partall++;
+
+            if (oddetall > partall)
+            {
+                int temp = a[partall];
+                a[partall] = a[oddetall];
+                a[oddetall] = temp;
+                oddetall--;
+                partall++;
+            }
+        }
     }
-}
+    }
 
 
-}
+
+
 
 
 
