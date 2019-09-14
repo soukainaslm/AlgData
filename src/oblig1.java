@@ -33,7 +33,14 @@ public class oblig1 {
   */
     public static void main(String[] args) {
         //int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        //char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+        //String s = "abc";
+        //String t = "ABC";
+        String a = "Z en";
+        String b = "ab e";
+        String c = "yut ";
+        String d = "krr ";
+        String e = "ade ";
 
         //System.out.println(oblig1.maks(a));
         //System.out.println(oblig1.ombyttinger(a));
@@ -42,9 +49,12 @@ public class oblig1 {
         //delsortering(a);
         // System.out.println(Arrays.toString(a));
 
-        System.out.println(Arrays.toString(a));
+        /*System.out.println(Arrays.toString(a));
         rotasjon(a,3); System.out.println(Arrays.toString(a));
-        rotasjon(a,-2); System.out.println(Arrays.toString(a));
+        rotasjon(a,-2); System.out.println(Arrays.toString(a));*/
+        //System.out.println(oblig1.flett(s,t));
+        System.out.println(oblig1.flett(a,b,c,d,e));
+
     }
 
 
@@ -157,7 +167,7 @@ public class oblig1 {
 
     //Oppgave 6
 
-    public static void rotasjon(char[] a, int k) {
+   /* public static void rotasjon(char[] a, int k) {
         int b = a.length;
 
         if (b < 2) {
@@ -201,7 +211,40 @@ public class oblig1 {
 
         }
 
-        }
+        }*/
+
+
+   /*public static String flett(String s, String t){
+       int switch_ = 0;
+       int j = 0;
+       int k = 0;
+       String newString = "";
+       for (int i = 0; i < (s.length() + t.length()); i++){
+           if (switch_ == 0){
+               j++;
+               newString += s.charAt(j-1);
+               switch_ = 1;
+           }
+           else if (switch_ == 1){
+               k++;
+               newString += t.charAt(k-1);
+               switch_ = 0;
+           }
+       } return newString;
+   }*/
+
+    public static String flett(String a, String b, String c, String d, String e){
+        int lenght = a.length() + b.length() + c.length() + d.length() + e.length();
+        String newString = "";
+
+        for (int i = 1; i <= 4; i++) {
+            newString += a.charAt(i - 1);
+            newString += b.charAt(i - 1);
+            newString += c.charAt(i - 1);
+            newString += d.charAt(i - 1);
+            newString += e.charAt(i - 1);
+        }return newString;
+    }
     }
 
 
