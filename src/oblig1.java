@@ -245,6 +245,10 @@ public class oblig1 {
             newString += e.charAt(i - 1);
         }return newString;
     }
+
+    public static int[] indekssortering(int[]){
+
+    }
     }
 
 
