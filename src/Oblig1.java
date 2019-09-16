@@ -4,10 +4,11 @@
     Zarina Iljasova - S311806
  */
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
-public class oblig1 {
+public class Oblig1 {
 
     //Oppgave 1
 
@@ -32,29 +33,54 @@ public class oblig1 {
       }
   */
     public static void main(String[] args) {
-        //int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] a = {2, 4, 1, 6, 5, 8, 9, 3, 10};
         //char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         //String s = "abc";
         //String t = "ABC";
-        String a = "Z en";
+       // String a = "Z en";
         String b = "ab e";
         String c = "yut ";
         String d = "krr ";
         String e = "ade ";
 
-        //System.out.println(oblig1.maks(a));
-        //System.out.println(oblig1.ombyttinger(a));
-        //System.out.println(oblig1.antallUlikeSortert(a));
-        //System.out.println(oblig1.antallUlikeUsortert(a));
+        //System.out.println(Oblig1.maks(a));
+        //System.out.println(Oblig1.ombyttinger(a));
+        //System.out.println(Oblig1.antallUlikeSortert(a));
+        //System.out.println(Oblig1.antallUlikeUsortert(a));
         //delsortering(a);
         // System.out.println(Arrays.toString(a));
 
         /*System.out.println(Arrays.toString(a));
         rotasjon(a,3); System.out.println(Arrays.toString(a));
         rotasjon(a,-2); System.out.println(Arrays.toString(a));*/
-        //System.out.println(oblig1.flett(s,t));
-        System.out.println(oblig1.flett(a,b,c,d,e));
+        //System.out.println(Oblig1.flett(s,t));
+        //System.out.println(Oblig1.flett(a,b,c,d,e));
+        System.out.println("Før indekssortering: " + Arrays.toString(a));
+        System.out.println("Etter indekssortering: " + Arrays.toString(indekssortering(a)));
 
+    }
+
+    public static int[] indekssortering1(int[] a) {
+        int[] indeks = new int[a.length]; //oppretter en ny tabell med samme lengde som parametertabellen
+
+        for(int i = 0; i < a.length; i++){
+            indeks[i] = i; //Fyller indeks-tabellen med verdier fra 0 til a.length
+        }
+
+
+
+        int temp;
+        int j;
+        for (int i = 1; i < a.length; i++) {
+            for (temp = indeks[i], j = i-1; j >=0 && a[temp] < a[indeks[j]]; j--) {
+                //Setter temp lik verdiene i indeks, og j lik i-1.
+                //Så lenge j er mindre eller lik 0, og a[temp] er mindre enn a[indeks[j]], saa skal j dekrementeres.
+                indeks[j+1] = indeks[j];
+            }
+            indeks[j+1] = temp;
+        }
+
+        return indeks;
     }
 
 
@@ -233,7 +259,7 @@ public class oblig1 {
        } return newString;
    }*/
 
-    public static String flett(String a, String b, String c, String d, String e){
+   /* public static String flett(String a, String b, String c, String d, String e){
         int lenght = a.length() + b.length() + c.length() + d.length() + e.length();
         String newString = "";
 
@@ -244,10 +270,28 @@ public class oblig1 {
             newString += d.charAt(i - 1);
             newString += e.charAt(i - 1);
         }return newString;
-    }
+    }*/
 
-    public static int[] indekssortering(int[]){
+    public static int[] indekssortering(int[]a){
+        int[] index = new int[a.length];
+        for (int i = 0; i<a.length; i++){
+            for (int j = 0; j < a.length -1; j++){
+            }
+        }
 
+        int i = 0;
+        while (i<a.length){
+            for (int j = 0; j<a.length; j++){
+                if (a[i]==a[j]){
+                    index[i]=j;
+                    i++;
+                    if (i==a.length){
+                        break;
+                    }
+                }
+            }
+        }
+        return index;
     }
     }
 
