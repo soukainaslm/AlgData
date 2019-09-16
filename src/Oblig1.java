@@ -367,6 +367,6 @@ public class Oblig1 {
 }*/
 
 
-
+ 
 
 
