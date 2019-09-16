@@ -12,7 +12,7 @@ public class Oblig1 {
 
     //Oppgave 1
 
-    /*  public static int maks(int[] a){
+      public static int maks(int[] a){
           if (a.length < 1)
               throw new java.util.NoSuchElementException("Tabellen er tom!");
 
@@ -31,35 +31,7 @@ public class Oblig1 {
 
           return a[a.length - 1];
       }
-  */
-    public static void main(String[] args) {
-        int[] a = {3, 4, 10, 2, 5, 1};
-        //char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
-        //String s = "abc";
-        //String t = "ABC";
-        // String a = "Z en";
-        // String b = "ab e";
-        //String c = "yut ";
-        //String d = "krr ";
-        // String e = "ade ";
 
-        //System.out.println(Oblig1.maks(a));
-        //System.out.println(Oblig1.ombyttinger(a));
-        //System.out.println(Oblig1.antallUlikeSortert(a));
-        //System.out.println(Oblig1.antallUlikeUsortert(a));
-        //delsortering(a);
-        // System.out.println(Arrays.toString(a));
-
-        /*System.out.println(Arrays.toString(a));
-        rotasjon(a,3); System.out.println(Arrays.toString(a));
-        rotasjon(a,-2); System.out.println(Arrays.toString(a));*/
-        //System.out.println(Oblig1.flett(s,t));
-        //System.out.println(Oblig1.flett(a,b,c,d,e));
-        //System.out.println("Før indekssortering: " + Arrays.toString(a));
-        //System.out.println("Etter indekssortering: " + Arrays.toString(indekssortering(a)));
-        System.out.println(Arrays.toString(tredjeMin(a)));
-    }
-/*
     public static int[] indekssortering1(int[] a) {
         int[] indeks = new int[a.length]; //oppretter en ny tabell med samme lengde som parametertabellen
 
@@ -83,8 +55,7 @@ public class Oblig1 {
         return indeks;
     }
 
-*/
- /*   public static int ombyttinger(int[] a) {
+public static int ombyttinger(int[] a) {
 
 
         int ombytt = 0;
@@ -101,10 +72,10 @@ public class Oblig1 {
         }
         return ombytt;
     }
-    */
+
 
     //Oppgave 2
-    /*public static int antallUlikeSortert(int[] a){
+    public static int antallUlikeSortert(int[] a){
 
         if (a.length < 1){
             return 0;
@@ -126,10 +97,10 @@ public class Oblig1 {
         }
         return teller; 
 
-    }*/
+    }
 
 
-  /*  public static int antallUlikeUsortert(int[] a) {
+    public static int antallUlikeUsortert(int[] a) {
         if (a.length < 1)
             return 0;           //sjekker om arrayet er tomt
         else {
@@ -144,9 +115,9 @@ public class Oblig1 {
             return teller;
         }
 
-    }*/
+    }
 
-/*
+
     public static void delsortering(int[] a) {
         if (a.length < 1)
             System.out.println("0");
@@ -170,8 +141,7 @@ public class Oblig1 {
             }
         }
     }
-    */
-/*
+
 
     //Oppgave 5
 
@@ -189,11 +159,11 @@ public class Oblig1 {
         a[0] = nyliste;
     }
 
-*/
+
 
     //Oppgave 6
 
-   /* public static void rotasjon(char[] a, int k) {
+    public static void rotasjon(char[] a, int k) {
         int b = a.length;
 
         if (b < 2) {
@@ -237,10 +207,10 @@ public class Oblig1 {
 
         }
 
-        }*/
+        }
 
 
-   /*public static String flett(String s, String t){
+   public static String flett(String s, String t){
        int switch_ = 0;
        int j = 0;
        int k = 0;
@@ -257,9 +227,9 @@ public class Oblig1 {
                switch_ = 0;
            }
        } return newString;
-   }*/
+   }
 
-   /* public static String flett(String a, String b, String c, String d, String e){
+    public static String flett(String a, String b, String c, String d, String e){
         int lenght = a.length() + b.length() + c.length() + d.length() + e.length();
         String newString = "";
 
@@ -271,7 +241,7 @@ public class Oblig1 {
             newString += e.charAt(i - 1);
         }return newString;
     }
-    */
+
 
 
     public static int[] indekssortering(int[] a) {
@@ -349,9 +319,9 @@ public class Oblig1 {
     }
 
 
-}
 
-/*
+
+
 // Oppgave 10
     public static boolean inneholdt(String a, String b) {
         int[] x = new int[250];
@@ -364,7 +334,7 @@ public class Oblig1 {
         return true;
     }
 
-}*/
+}
 
 
 
