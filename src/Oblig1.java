@@ -33,15 +33,15 @@ public class Oblig1 {
       }
   */
     public static void main(String[] args) {
-        int[] a = {2, 4, 1, 6, 5, 8, 9, 3, 10};
+        int[] a = {3, 4, 10, 2, 5, 1};
         //char[] a = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
         //String s = "abc";
         //String t = "ABC";
-       // String a = "Z en";
-        String b = "ab e";
-        String c = "yut ";
-        String d = "krr ";
-        String e = "ade ";
+        // String a = "Z en";
+        // String b = "ab e";
+        //String c = "yut ";
+        //String d = "krr ";
+        // String e = "ade ";
 
         //System.out.println(Oblig1.maks(a));
         //System.out.println(Oblig1.ombyttinger(a));
@@ -55,11 +55,11 @@ public class Oblig1 {
         rotasjon(a,-2); System.out.println(Arrays.toString(a));*/
         //System.out.println(Oblig1.flett(s,t));
         //System.out.println(Oblig1.flett(a,b,c,d,e));
-        System.out.println("Før indekssortering: " + Arrays.toString(a));
-        System.out.println("Etter indekssortering: " + Arrays.toString(indekssortering(a)));
-
+        //System.out.println("Før indekssortering: " + Arrays.toString(a));
+        //System.out.println("Etter indekssortering: " + Arrays.toString(indekssortering(a)));
+        System.out.println(Arrays.toString(tredjeMin(a)));
     }
-
+/*
     public static int[] indekssortering1(int[] a) {
         int[] indeks = new int[a.length]; //oppretter en ny tabell med samme lengde som parametertabellen
 
@@ -83,7 +83,7 @@ public class Oblig1 {
         return indeks;
     }
 
-
+*/
  /*   public static int ombyttinger(int[] a) {
 
 
@@ -270,22 +270,24 @@ public class Oblig1 {
             newString += d.charAt(i - 1);
             newString += e.charAt(i - 1);
         }return newString;
-    }*/
+    }
+    */
 
-    public static int[] indekssortering(int[]a){
+
+    public static int[] indekssortering(int[] a) {
         int[] index = new int[a.length];
-        for (int i = 0; i<a.length; i++){
-            for (int j = 0; j < a.length -1; j++){
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length - 1; j++) {
             }
         }
 
         int i = 0;
-        while (i<a.length){
-            for (int j = 0; j<a.length; j++){
-                if (a[i]==a[j]){
-                    index[i]=j;
+        while (i < a.length) {
+            for (int j = 0; j < a.length; j++) {
+                if (a[i] == a[j]) {
+                    index[i] = j;
                     i++;
-                    if (i==a.length){
+                    if (i == a.length) {
                         break;
                     }
                 }
@@ -293,7 +295,76 @@ public class Oblig1 {
         }
         return index;
     }
+
+
+    // Oppgave 9
+    public static int[] tredjeMin(int[] a) {
+
+        if (a.length < 3 ){
+            throw new NoSuchElementException("a.length (" + a.length + ") < 3");
+        }
+
+
+        int[] firstThree = {a[0], a[1], a[2]};
+        int[] sortert = indekssortering(firstThree);
+
+        int min1 = sortert[0];
+        int min2 = sortert[1];
+        int min3 = sortert[2];
+
+
+        int minst = a[min1];
+        int nestminst = a[min2];
+        int tredjeminst = a[min3];
+
+        for (int i = 3; i < a.length; i++) {
+            if (a[i] < tredjeminst) {
+                if (a[i] < nestminst) {
+                    if (a[i] < minst) {
+                        min3 = min2;
+                        tredjeminst = nestminst;
+
+                        min2 = min1;
+                        nestminst = minst;
+
+                        min1 = i;
+                        minst = a[i];
+                    } else {
+                        min3 = min2;
+                        tredjeminst = nestminst;
+
+                        min2 = i;
+                        nestminst = a[i];
+                    }
+                } else {
+                    min3 = i;
+                    tredjeminst = a[i];
+
+                }
+            }
+        }
+
+        return new int[]{min1, min2, min3};
+
     }
+
+
+}
+
+/*
+// Oppgave 10
+    public static boolean inneholdt(String a, String b) {
+        int[] x = new int[250];
+        int[] y = new int[250];
+
+        for (char c : a.toCharArray()) x[c]++;
+        for (char c : b.toCharArray()) y[c]++;
+
+        for (int i = 0; i < x.length; i++) if (x[i] > 0) if (y[i] < x[i]) return false;
+        return true;
+    }
+
+}*/
 
 
 
