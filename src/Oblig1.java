@@ -49,6 +49,14 @@ public static int ombyttinger(int[] a) {
         return ombytt;
     }
 
+    /*
+    Vi forutsetter at tabellen består av en tilfeldig permutasjon av tallene fra 1 til n.
+    Det blir mest ombyttinger (n-1) når den storste verdien er fordelt i a[0].
+    Det blir minst ombyttinger (0) når den storste verdien er fordelt i a[n].
+    Naar vi kjorer metoden faar vi i snitt 100 diverse permutasjoner av en tabell med tallene 1 til 10,
+    så vil det i snitt bli ca. 7 ombyttinger. Dette fører til at det er mindre effektivt enn maksmetoden siden vi ikke utfører noen ombyttninger. 
+     */
+
     //Oppgave 2
     public static int antallUlikeSortert(int[] a)
     {
@@ -76,7 +84,7 @@ public static int ombyttinger(int[] a) {
         return UlikeA;
     }
 
-
+    
     // oppggave 3
     public static int antallUlikeUsortert(int[] a) {
         int teller = 1;
