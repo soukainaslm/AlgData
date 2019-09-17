@@ -57,23 +57,23 @@ public static int ombyttinger(int[] a) {
             return a.length;
         }
 
-        int antallUlike = 1;
+        int UlikeA = 1;
 
-        for (int i = 1; i < a.length; i++)
+        for (int j = 1; j < a.length; j++)
         {
-            if (a[i - 1] > a[i])
+            if (a[j - 1] > a[j])
             {
-                throw new IllegalStateException("Tabellen a er usortert!");
+                throw new IllegalStateException(" Usortet tabell!!");
             }
             else
             {
-                if (a[i - 1] < a[i])
+                if (a[j - 1] < a[j])
                 {
-                    antallUlike++;
+                    UlikeA++;
                 }
             }
         }
-        return antallUlike;
+        return UlikeA;
     }
 
 
