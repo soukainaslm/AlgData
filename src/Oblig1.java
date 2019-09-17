@@ -56,14 +56,12 @@ public class Oblig1 {
     }
 
 public static int ombyttinger(int[] a) {
-
-
         int ombytt = 0;
         if (a.length < 1)
             throw new NoSuchElementException("Tabellen er tom");
 
         for (int j = 0; j < a.length - 1; j++) {
-            if (a[j + 1] > a[j]) {
+            if (a[j + 1] < a[j]) {
                 int maksVerdi = a[j + 1];
                 a[j + 1] = a[j];
                 a[j] = maksVerdi;
@@ -73,26 +71,18 @@ public static int ombyttinger(int[] a) {
         return ombytt;
     }
 
-
     //Oppgave 2
     public static int antallUlikeSortert(int[] a){
 
         if (a.length < 1){
             return 0;
         }
+        int teller = a.length;
 
-        int i = 0;
-        int teller = 1;
-
-        for (int j= 0; j< a.length - 1; j++){
-            if ( i <= a[j]){
-                if ( a[j]!= i){
-                    teller++;
-                }
-                i = a[j];
-            }
-            if (a[j] > a [j + 1]){
-                throw new IllegalStateException("Tabellen er ikke sortert");
+        for (int j= 0; j< a.length; j++){
+            if (a[j]< a[j+1])
+           for (int i = j; i<a.length; i++)
+            if (a[j] == a [i]){
             }
         }
         return teller;
@@ -102,18 +92,17 @@ public static int ombyttinger(int[] a) {
     // oppggave 3
     public static int antallUlikeUsortert(int[] a) {
         int teller = 1;
+        int z;
 
         if (a.length < 1) {
             return 0;
         }
-
         for (int i = 1; i < a.length; i++) {
-            int j;
-            for (j = 0; j < i; j++) {
-                if (a[j] == a[i])
+            for (z = 0; z < i; z++) {
+                if (a[z] == a[i])
                     break;
             }
-            if (j == i)
+            if (z == i)
                 teller++;
         }
         return teller;
@@ -121,25 +110,21 @@ public static int ombyttinger(int[] a) {
 
     // oppgave 4
     public static void delsortering(int[] a) {
-        int v = 0;
-        int h = a.length-1;
-
-        while (v < a.length && (a[v] & 1) != 0) v++;
-        while (h >= 0 && ((a[h] & 1) == 0)) h--;
+        int oddetall = 0;
+        int partall = a.length-1;
 
         while (true) {
 
-            while (v < a.length && (a[v] & 1) != 0) v++;
-            while (h >= 0 && ((a[h] & 1) == 0)) h--;
-            if(v < h) {
-                Oblig1Test.bytt(a, v, h);
+            while (oddetall < a.length && (a[oddetall] % 2) != 0) oddetall++;
+            while (partall >= 0 && ((a[partall] % 2) == 0)) partall--;
+            if(oddetall < partall) {
+                Oblig1Test.bytt(a, oddetall, partall);
             } else {
                 break;
             }
-
         }
-        Arrays.sort(a,0,v);
-        Arrays.sort(a,v,a.length);
+        Arrays.sort(a,0,oddetall);
+        Arrays.sort(a,oddetall,a.length);
     }
 
 
@@ -249,7 +234,7 @@ public static int ombyttinger(int[] a) {
     }
 
 
-
+    //oppgave 8
     public static int[] indekssortering(int[] a) {
         int[] index = new int[a.length];
         for (int i = 0; i < a.length; i++) {
