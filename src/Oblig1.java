@@ -52,15 +52,19 @@ public static int ombyttinger(int[] a) {
     //Oppgave 2
     public static int antallUlikeSortert(int[] a){
 
-        if (a.length < 1){
-            return 0;
+        if (a.length < 2){
+            return a.length;
         }
-        int teller = a.length;
+        int teller = 1;
 
-        for (int j= 0; j< a.length; j++){
-            if (a[j]< a[j+1])
-           for (int i = j; i<a.length; i++)
-            if (a[j] == a [i]){
+        for (int j = 1; j< a.length; j++){
+            if (a[j] < a[j-1]){
+                throw new IllegalStateException("Usortert tabell!");
+            }
+           else {
+               if (a[j-1] < a[j]){
+                   teller++;
+               }
             }
         }
         return teller;
