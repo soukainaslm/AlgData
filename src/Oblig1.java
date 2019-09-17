@@ -32,7 +32,23 @@ public class Oblig1 {
           return a[a.length - 1];
       }
 
-      
+
+public static int ombyttinger(int[] a) {
+        int ombytt = 0;
+        if (a.length < 1)
+            throw new NoSuchElementException("Tabellen er tom");
+
+        for (int j = 0; j < a.length - 1; j++) {
+            if (a[j + 1] < a[j]) {
+                int maksVerdi = a[j + 1];
+                a[j + 1] = a[j];
+                a[j] = maksVerdi;
+                ombytt++;
+            }
+        }
+        return ombytt;
+    }
+
     //Oppgave 2
     public static int antallUlikeSortert(int[] a){
 
@@ -200,13 +216,14 @@ public class Oblig1 {
     public static int[] indekssortering(int[] a) {
 
             int[] index = new int[a.length];
+            int t;
+            int x;
 
             for (int i = 0; i < a.length; i++) {
                 index[i] = i;
             }
 
-            int t;
-            int x;
+
             for (int i = 1; i < a.length; i++) {
                 for (t = index[i], x = i - 1; x >= 0 && a[t] < a[index[x]]; x--) {
 
