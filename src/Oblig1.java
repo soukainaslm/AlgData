@@ -95,52 +95,53 @@ public static int ombyttinger(int[] a) {
                 throw new IllegalStateException("Tabellen er ikke sortert");
             }
         }
-        return teller; 
+        return teller;
 
     }
 
-
+    // oppggave 3
     public static int antallUlikeUsortert(int[] a) {
-        if (a.length < 1)
-            return 0;           //sjekker om arrayet er tomt
-        else {
-            int teller = 0;
-            int next = 0;
-            for (int i = 0; i < a.length; i++) {    //kjører gjennom arrayet
-                if (a[i] != next) {             //sjekker om nåværende indeks er lik forrige indeks i arrayet
-                    teller++;
-                }
-                next = a[i];
-            }
-            return teller;
+        int teller = 1;
+
+        if (a.length < 1) {
+            return 0;
         }
 
+        for (int i = 1; i < a.length; i++) {
+            int j;
+            for (j = 0; j < i; j++) {
+                if (a[j] == a[i])
+                    break;
+            }
+            if (j == i)
+                teller++;
+        }
+        return teller;
     }
 
-
+    // oppgave 4
     public static void delsortering(int[] a) {
-        if (a.length < 1)
-            System.out.println("0");
+        int v = 0;
+        int h = a.length-1;
 
-        int partall = 0, oddetall = a.length - 1;
-        while (oddetall > partall)
-        {
-            while (a[oddetall]%2 == 0 && oddetall > partall)
-                oddetall--;
+        while (v < a.length && (a[v] & 1) != 0) v++;
+        while (h >= 0 && ((a[h] & 1) == 0)) h--;
 
-            while (a[partall]%2 == 1 && oddetall >  partall)
-                partall++;
+        while (true) {
 
-            if (oddetall > partall)
-            {
-                int temp = a[partall];
-                a[partall] = a[oddetall];
-                a[oddetall] = temp;
-                oddetall--;
-                partall++;
+            while (v < a.length && (a[v] & 1) != 0) v++;
+            while (h >= 0 && ((a[h] & 1) == 0)) h--;
+            if(v < h) {
+                Oblig1Test.bytt(a, v, h);
+            } else {
+                break;
             }
+
         }
+        Arrays.sort(a,0,v);
+        Arrays.sort(a,v,a.length);
     }
+
 
 
     //Oppgave 5
@@ -211,35 +212,40 @@ public static int ombyttinger(int[] a) {
 
 
    public static String flett(String s, String t){
-       int switch_ = 0;
-       int j = 0;
-       int k = 0;
-       String newString = "";
-       for (int i = 0; i < (s.length() + t.length()); i++){
-           if (switch_ == 0){
-               j++;
-               newString += s.charAt(j-1);
-               switch_ = 1;
-           }
-           else if (switch_ == 1){
-               k++;
-               newString += t.charAt(k-1);
-               switch_ = 0;
-           }
-       } return newString;
+       StringBuilder sb = new StringBuilder();
+       int i = 0, j = 0, k = 0;                 // lokkevariabler
+
+       while (i < s.length() - 1 && j < t.length()) {
+           sb.append(s.charAt(i++));      // forst en verdi fra s
+           sb.append(t.charAt(j++));       // saa en verdi fra t
+       }
+       // vi maa ta med resten
+
+       if (i < s.length()) sb.append(s.substring(i));
+       if (j < t.length()) sb.append(t.substring(j));
+
+       return sb.toString();
    }
 
-    public static String flett(String a, String b, String c, String d, String e){
-        int lenght = a.length() + b.length() + c.length() + d.length() + e.length();
-        String newString = "";
+    public static String flett(String... s){
+        StringBuilder sb2 = new StringBuilder();
 
-        for (int i = 1; i <= 4; i++) {
-            newString += a.charAt(i - 1);
-            newString += b.charAt(i - 1);
-            newString += c.charAt(i - 1);
-            newString += d.charAt(i - 1);
-            newString += e.charAt(i - 1);
-        }return newString;
+        boolean done = false;
+        int i = 0;
+        while (!done) {
+            done = true;
+
+            for (int j = 0; j < s.length; j++) {
+                if (s[j].length() > i) {
+                    sb2.append(s[j].charAt(i));
+
+                    done = false;
+                }
+            }
+            i++;
+
+        }
+        return sb2.toString();
     }
 
 
@@ -337,6 +343,6 @@ public static int ombyttinger(int[] a) {
 }
 
 
- 
+
 
 
