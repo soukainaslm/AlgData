@@ -50,22 +50,32 @@ public static int ombyttinger(int[] a) {
     }
 
     //Oppgave 2
-    public static int antallUlikeSortert(int[] a){
-
-        if (a.length < 1){
-            return 0;
+    public static int antallUlikeSortert(int[] a)
+    {
+        if (a.length < 2)
+        {
+            return a.length;
         }
-        int teller = a.length;
 
-        for (int j= 0; j< a.length; j++){
-            if (a[j]< a[j+1])
-           for (int i = j; i<a.length; i++)
-            if (a[j] == a [i]){
+        int antallUlike = 1;
+
+        for (int i = 1; i < a.length; i++)
+        {
+            if (a[i - 1] > a[i])
+            {
+                throw new IllegalStateException("Tabellen a er usortert!");
+            }
+            else
+            {
+                if (a[i - 1] < a[i])
+                {
+                    antallUlike++;
+                }
             }
         }
-        return teller;
-
+        return antallUlike;
     }
+
 
     // oppggave 3
     public static int antallUlikeUsortert(int[] a) {
