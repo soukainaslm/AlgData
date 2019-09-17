@@ -65,7 +65,7 @@ public static int ombyttinger(int[] a) {
         }
         return teller;
 
-    }
+    } 
 
     // oppggave 3
     public static int antallUlikeUsortert(int[] a) {
