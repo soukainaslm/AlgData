@@ -32,45 +32,7 @@ public class Oblig1 {
           return a[a.length - 1];
       }
 
-    public static int[] indekssortering1(int[] a) {
-        int[] indeks = new int[a.length]; //oppretter en ny tabell med samme lengde som parametertabellen
-
-        for(int i = 0; i < a.length; i++){
-            indeks[i] = i; //Fyller indeks-tabellen med verdier fra 0 til a.length
-        }
-
-
-
-        int temp;
-        int j;
-        for (int i = 1; i < a.length; i++) {
-            for (temp = indeks[i], j = i-1; j >=0 && a[temp] < a[indeks[j]]; j--) {
-                //Setter temp lik verdiene i indeks, og j lik i-1.
-                //Så lenge j er mindre eller lik 0, og a[temp] er mindre enn a[indeks[j]], saa skal j dekrementeres.
-                indeks[j+1] = indeks[j];
-            }
-            indeks[j+1] = temp;
-        }
-
-        return indeks;
-    }
-
-public static int ombyttinger(int[] a) {
-        int ombytt = 0;
-        if (a.length < 1)
-            throw new NoSuchElementException("Tabellen er tom");
-
-        for (int j = 0; j < a.length - 1; j++) {
-            if (a[j + 1] < a[j]) {
-                int maksVerdi = a[j + 1];
-                a[j + 1] = a[j];
-                a[j] = maksVerdi;
-                ombytt++;
-            }
-        }
-        return ombytt;
-    }
-
+      
     //Oppgave 2
     public static int antallUlikeSortert(int[] a){
 
@@ -236,25 +198,24 @@ public static int ombyttinger(int[] a) {
 
     //oppgave 8
     public static int[] indekssortering(int[] a) {
-        int[] indeks = new int[a.length];
 
-        for(int i = 0; i < a.length; i++){
-            indeks[i] = i;
-        }
+            int[] index = new int[a.length];
 
-        int temp;
-        int j;
-        for (int i = 1; i < a.length; i++) {
-            for (temp = indeks[i], j = i-1; j >=0 && a[temp] < a[indeks[j]]; j--) {
-
-                indeks[j+1] = indeks[j];
+            for (int i = 0; i < a.length; i++) {
+                index[i] = i;
             }
-            indeks[j+1] = temp;
+
+            int t;
+            int x;
+            for (int i = 1; i < a.length; i++) {
+                for (t = index[i], x = i - 1; x >= 0 && a[t] < a[index[x]]; x--) {
+
+                    index[x + 1] = index[x];
+                }
+                index[x + 1] = t;
+            }
+            return index;
         }
-        return indeks;
-    }
-
-
 
     // Oppgave 9
     public static int[] tredjeMin(int[] a) {
