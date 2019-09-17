@@ -236,28 +236,22 @@ public static int ombyttinger(int[] a) {
 
     //oppgave 8
     public static int[] indekssortering(int[] a) {
-        int[] temp_a = new int[a.length];
-        int[] index_a = new int[a.length];
-        int minst_index = 0;
+        int[] indeks = new int[a.length];
 
-        for (int i = 0; i < a.length; i++) {
-            temp_a[i] = a[i];
+        for(int i = 0; i < a.length; i++){
+            indeks[i] = i;
         }
-        if (a.length == 0)
-            return a;
-        for (int j = 0; j < temp_a.length; j++) {
-            for (int i = 0; i < temp_a.length; i++) {
-                if (temp_a[minst_index] > temp_a[i]) {
-                    minst_index = i;
-                }
-                index_a[j] = minst_index;
-                temp_a[minst_index] = 2147483647;
 
+        int temp;
+        int j;
+        for (int i = 1; i < a.length; i++) {
+            for (temp = indeks[i], j = i-1; j >=0 && a[temp] < a[indeks[j]]; j--) {
+
+                indeks[j+1] = indeks[j];
             }
-
-
+            indeks[j+1] = temp;
         }
-        return index_a;
+        return indeks;
     }
 
 
